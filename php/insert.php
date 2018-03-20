@@ -10,6 +10,11 @@ error_reporting(E_ALL);
 $dsn = "mysql:host=$HOST;dbname=$DB";
 $pdo = new PDO($dsn, $USER, $PASS);
 
+if ($_POST['age'] > 80) {
+	echo "Too old!";
+	die();
+}
+
 $stmt = $pdo->prepare('INSERT INTO People (first_name, last_name, phone, age, time_added) VALUES (?, ?, ?, ?, NOW())');
 $stmt->execute([$_POST['firstname'], $_POST['lastname'], $_POST['phone'], $_POST['age']]);
 
