@@ -37,6 +37,7 @@ class Database(object):
         cur = self.conn.cursor(pymysql.cursors.DictCursor)
         sql = 'INSERT INTO People (first_name, last_name, phone, age, time_added) VALUES (%s, %s, %s, %s, NOW())'
         result = cur.execute(sql, (firstname, lastname, phone, age))
+        self.conn.commit()
         return result
 
     def get_people(self):
