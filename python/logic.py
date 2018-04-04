@@ -55,3 +55,17 @@ class Database(object):
         cur.execute('SELECT id, name FROM Interests ORDER BY sort_order;')
 
         return CursorIterator(cur)
+
+    def get_user_by_id(self, user_id):
+        # TODO: implement this in DB
+        if str(user_id) == '1':
+            return {'user_id': 1, 'username': 'sean'}
+        else:
+            return None
+
+    def get_user_by_credentials(self, username, password):
+        # TODO: implement this in DB
+        if username == 'sean' and password == 'test':
+            return {'user_id': 1, 'username': 'sean'}
+        else:
+            return None
